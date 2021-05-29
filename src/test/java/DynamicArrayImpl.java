@@ -19,12 +19,12 @@ class DynamicArray {
 
     private int arr[];
     private int capacity;
-    private int current;
+    private int length;
 
     DynamicArray() {
         arr = new int[1];
         capacity = 1;
-        current = 0;
+        length = 0;
     }
 
     @Override
@@ -33,7 +33,7 @@ class DynamicArray {
     }
 
     public void push(int data) {
-        if (current == capacity) {
+        if (length == capacity) {
             int temp[] = new int[2 * capacity];
 
             for (int i=0; i < capacity; i++) {
@@ -42,8 +42,8 @@ class DynamicArray {
             capacity*=2;
             arr = temp;
         }
-        arr[current] = data;
-        current++;
+        arr[length] = data;
+        length++;
     }
 
     public void push(int index, int data) {
@@ -53,18 +53,18 @@ class DynamicArray {
             arr[index] = data;
         } else {
             int temp[] = new int[index+1];
-            for(int i=0; i<current; i++) {
+            for(int i=0; i<length; i++) {
                 temp[i] = arr[i];
             }
             capacity = index+1;
             arr = temp;
             arr[index] = data;
-            current = index+1;
+            length = index+1;
         }
     }
 
     int get(int index) {
-        if(index < current) {
+        if(index < length) {
             return arr[index];
         } else {
             return -1;
@@ -72,11 +72,11 @@ class DynamicArray {
     }
 
     void pop() {
-        current--;
+        length--;
     }
 
     int length() {
-        return current;
+        return length;
     }
 
     int getCapacity() {
@@ -84,7 +84,7 @@ class DynamicArray {
     }
 
     void print() {
-        for(int i=0; i < current; i++) {
+        for(int i=0; i < length; i++) {
             System.out.println(arr[i]);
         }
     }
