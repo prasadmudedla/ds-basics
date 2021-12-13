@@ -1,5 +1,17 @@
+
+/*
+    Problem statement:
+        For a given input String, return an output string with highest frequency of chars as first. 
+        Note: For same frequency repeated chars, print in ascending order
+    
+    Ex1: "this is my nations india"
+    Output: iiiiinnnsssaattdhmoy
+
+*/
+
 import java.util.*;
 import java.util.stream.Collectors;
+
 
 public class CharacterFrequencyPrint {
 
