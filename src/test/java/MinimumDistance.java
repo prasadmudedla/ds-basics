@@ -5,15 +5,6 @@ import static java.util.Arrays.asList;
 public class MinimumDistance {
 
     public static void main(String[] args) {
-        //int[][] grid = { {1, 0, 0}, {1, 0, 0}, {1, 9, 1}};
-//        int[][] grid =
-//        {
-//            {1, 1, 1, 1},
-//            {0, 1, 1, 1},
-//            {0, 1, 0, 1},
-//            {1, 1, 9, 1},
-//            {0, 0, 1, 1}
-//        };
 
         List<List<Integer>> list1 = asList(
                 asList(1,0,0),
