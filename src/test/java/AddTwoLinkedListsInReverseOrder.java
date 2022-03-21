@@ -3,8 +3,6 @@ public class AddTwoLinkedListsInReverseOrder {
     public static void main(String[] args) {
 
         ListNode l1 = new ListNode();
-
-
     }
 
     public static class ListNode {
@@ -16,7 +14,6 @@ public class AddTwoLinkedListsInReverseOrder {
     }
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-
         return l1;
     }
 
