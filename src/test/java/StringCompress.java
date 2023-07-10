@@ -29,24 +29,22 @@ class StringCompress {
         String s = "aabcccccaaa";
         StringBuilder outStr = new StringBuilder();
         char[] charArray = s.toCharArray();
-        if(charArray.length > 0 ) {
-            char startChar = charArray[0];
+        char startChar = charArray[0];
 
-            int charCount = 0;
+        int charCount = 0;
 
-            for(char c: s.toCharArray()) {
-                if(startChar == c) {
-                    charCount++;
-                } else {
-                    outStr.append(String.valueOf(startChar)+charCount);
-                    startChar = c;
-                    charCount = 1;
-                }
+        for(char c: s.toCharArray()) {
+            if(startChar == c) {
+                charCount++;
+            } else {
+                outStr.append(String.valueOf(startChar)+charCount);
+                startChar = c;
+                charCount = 1;
             }
-            outStr.append(String.valueOf(startChar)+charCount);
-
-            System.out.println(outStr);
         }
+        outStr.append(String.valueOf(startChar)+charCount);
+
+        System.out.println(outStr);
 
     }
 }

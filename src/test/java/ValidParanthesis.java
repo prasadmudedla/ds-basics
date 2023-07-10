@@ -18,7 +18,8 @@ public class ValidParanthesis {
         mappings1.put('{', '}');
         mappings1.put('[', ']');
 
-        String s = "()[[]}{}{}";
+//        String s = "()[[]}{}{}";
+        String s = "([{)(])(})";
         if(isValid(s)) {
             System.out.println("Is Valid");
         } else {
