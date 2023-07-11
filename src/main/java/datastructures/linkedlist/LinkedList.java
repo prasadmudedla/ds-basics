@@ -27,6 +27,19 @@ public class LinkedList {
         System.out.println("]");
     }
 
+    public Node getHead() {
+        return head;
+    }
+
+    public Node getTail() {
+        return tail;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+
     public void append(int n) {
         Node newNodeToAppend = new Node(n);
         if(length == 0) {
@@ -279,6 +292,68 @@ public class LinkedList {
             current = current.next;
         }
 
+    }
+
+    public void insertionSortOfLinkedList(LinkedList list) {
+        if(list.length <2) {
+            return;
+        }
+        Node sortedListHead = head;
+        Node unsortedListHead = head.next;
+
+        sortedListHead.next = null;
+
+        while (unsortedListHead != null) {
+            Node current = unsortedListHead;
+
+            unsortedListHead = unsortedListHead.next;
+
+            if(current.value < sortedListHead.value) {
+                current.next = sortedListHead;
+                sortedListHead = current;
+            } else {
+                Node searchPointer = sortedListHead;
+                while (searchPointer.next!=null && current.value > searchPointer.value) {
+                    searchPointer = searchPointer.next;
+                }
+                current.next = searchPointer.next;
+                searchPointer.next = current;
+            }
+        }
+
+        head = sortedListHead;
+        Node temp = head;
+        while (temp.next!=null) {
+            temp = temp.next;
+        }
+        tail = temp;
+    }
+
+    public void merge(LinkedList otherList) {
+        Node otherHead = otherList.getHead();
+        Node dummy = new Node(0);
+        Node current = dummy;
+
+        while (head != null && otherHead != null) {
+            if (head.value < otherHead.value) {
+                current.next = head;
+                head = head.next;
+            } else {
+                current.next = otherHead;
+                otherHead = otherHead.next;
+            }
+            current = current.next;
+        }
+
+        if (head != null) {
+            current.next = head;
+        } else {
+            current.next = otherHead;
+            tail = otherList.getTail();
+        }
+
+        head = dummy.next;
+        length += otherList.getLength();
     }
 
 }
